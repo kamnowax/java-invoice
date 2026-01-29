@@ -7,7 +7,7 @@ import pl.edu.agh.mwo.invoice.product.Product;
 public class Invoice {
 
 
-    private Map<Product, Integer> products;
+    private final Map<Product, Integer> products;
     public Invoice() {
         products = new HashMap<>();
     }
