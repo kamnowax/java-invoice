@@ -1,5 +1,4 @@
 package pl.edu.agh.mwo.invoice;
-
 import java.math.BigDecimal;
 
 import org.hamcrest.Matchers;
