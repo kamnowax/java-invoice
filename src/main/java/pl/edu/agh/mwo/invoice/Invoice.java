@@ -1,12 +1,15 @@
 package pl.edu.agh.mwo.invoice;
+
 import java.math.BigDecimal;
-import java.util.Map;
 import java.util.HashMap;
+import java.util.Map;
+
 import pl.edu.agh.mwo.invoice.product.Product;
+
 public class Invoice {
 
-
     private final Map<Product, Integer> products;
+
     public Invoice() {
         products = new HashMap<>();
     }
@@ -19,20 +22,25 @@ public class Invoice {
         if (product == null) {
             throw new IllegalArgumentException("Product cannot be null");
         }
+
         if (quantity == null || quantity <= 0) {
             throw new IllegalArgumentException("Quantity must be > 0");
         }
+
         products.merge(product, quantity, Integer::sum);
     }
 
     public BigDecimal getSubtotal() {
         BigDecimal sum = BigDecimal.ZERO;
+
         for (Map.Entry<Product, Integer> entry : products.entrySet()) {
             sum = sum.add(
-                    entry.getKey().getPrice()
+                    entry.getKey()
+                            .getPrice()
                             .multiply(BigDecimal.valueOf(entry.getValue()))
             );
         }
+
         return sum;
     }
 
