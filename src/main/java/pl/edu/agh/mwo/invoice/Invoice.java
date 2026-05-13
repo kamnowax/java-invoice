@@ -8,9 +8,14 @@ import pl.edu.agh.mwo.invoice.product.Product;
 
 public class Invoice {
 
+    private static int nextNumber = 1;
+
+    private final int number;
+
     private final Map<Product, Integer> products;
 
     public Invoice() {
+        number = nextNumber++;
         products = new HashMap<>();
     }
 
@@ -63,5 +68,9 @@ public class Invoice {
 
     public BigDecimal getTotal() {
         return getSubtotal().add(getTax());
+    }
+
+    public int getNumber() {
+        return number;
     }
 }
