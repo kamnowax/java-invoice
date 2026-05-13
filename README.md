@@ -9,3 +9,6 @@ Projekt faktury napisany w Javie z użyciem TDD.
 
 ## Niezrealizowane
 - Punkt 3 – akcyza i nowe produkty
+
+## PS
+Checkstyle postanowił nie współpracować 😄
