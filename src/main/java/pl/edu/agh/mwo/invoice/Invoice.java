@@ -74,6 +74,6 @@ public class Invoice {
         return number;
     }
     public String print() {
-        return "Invoice number: " + number + "\nChleb";
+        return "Invoice number: " + number + "\nChleb 2";
     }
 }

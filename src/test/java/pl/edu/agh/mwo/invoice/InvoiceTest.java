@@ -144,5 +144,15 @@ public class InvoiceTest {
                 result.contains(String.valueOf(invoice.getNumber()))
         );
     }
+    @Test
+    public void testPrintedInvoiceContainsQuantity() {
+        invoice.addProduct(
+                new TaxFreeProduct("Chleb", new BigDecimal("5")),
+                2
+        );
 
+        String result = invoice.print();
+
+        Assert.assertTrue(result.contains("2"));
+    }
 }
