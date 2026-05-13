@@ -125,5 +125,16 @@ public class InvoiceTest {
         invoice.addProduct(null);
     }
 
+    @Test
+    public void testInvoiceCanBePrinted() {
+        invoice.addProduct(
+                new TaxFreeProduct("Chleb", new BigDecimal("5")),
+                2
+        );
+
+        String result = invoice.print();
+
+        Assert.assertTrue(result.contains("Chleb"));
+    }
 
 }

@@ -73,4 +73,7 @@ public class Invoice {
     public int getNumber() {
         return number;
     }
+    public String print() {
+        return "Chleb";
+    }
 }
