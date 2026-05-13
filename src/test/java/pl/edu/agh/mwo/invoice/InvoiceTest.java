@@ -136,5 +136,13 @@ public class InvoiceTest {
 
         Assert.assertTrue(result.contains("Chleb"));
     }
+    @Test
+    public void testPrintedInvoiceContainsInvoiceNumber() {
+        String result = invoice.print();
+
+        Assert.assertTrue(
+                result.contains(String.valueOf(invoice.getNumber()))
+        );
+    }
 
 }
