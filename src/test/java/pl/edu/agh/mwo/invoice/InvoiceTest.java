@@ -177,4 +177,19 @@ public class InvoiceTest {
 
         Assert.assertTrue(result.contains("Liczba pozycji: 1"));
     }
+    @Test
+    public void testInvoiceDoesNotContainDuplicatedProducts() {
+        Product bread = new TaxFreeProduct(
+                "Chleb",
+                new BigDecimal("5")
+        );
+
+        invoice.addProduct(bread);
+        invoice.addProduct(bread);
+
+        String result = invoice.print();
+
+        Assert.assertTrue(result.contains("2"));
+        Assert.assertTrue(result.contains("Liczba pozycji: 1"));
+    }
 }
