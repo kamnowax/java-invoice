@@ -155,4 +155,26 @@ public class InvoiceTest {
 
         Assert.assertTrue(result.contains("2"));
     }
+    @Test
+    public void testPrintedInvoiceContainsPrice() {
+        invoice.addProduct(
+                new TaxFreeProduct("Chleb", new BigDecimal("5")),
+                2
+        );
+
+        String result = invoice.print();
+
+        Assert.assertTrue(result.contains("5"));
+    }
+    @Test
+    public void testPrintedInvoiceContainsNumberOfPositions() {
+        invoice.addProduct(
+                new TaxFreeProduct("Chleb", new BigDecimal("5")),
+                2
+        );
+
+        String result = invoice.print();
+
+        Assert.assertTrue(result.contains("Liczba pozycji: 1"));
+    }
 }

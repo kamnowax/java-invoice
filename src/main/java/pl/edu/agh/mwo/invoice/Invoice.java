@@ -74,6 +74,27 @@ public class Invoice {
         return number;
     }
     public String print() {
-        return "Invoice number: " + number + "\nChleb 2";
+        StringBuilder result = new StringBuilder();
+
+        result.append("Invoice number: ")
+                .append(number)
+                .append("\n");
+
+        for (Map.Entry<Product, Integer> entry : products.entrySet()) {
+            Product product = entry.getKey();
+            Integer quantity = entry.getValue();
+
+            result.append(product.getName())
+                    .append(" ")
+                    .append(quantity)
+                    .append(" ")
+                    .append(product.getPrice())
+                    .append("\n");
+        }
+
+        result.append("Liczba pozycji: ")
+                .append(products.size());
+
+        return result.toString();
     }
 }
